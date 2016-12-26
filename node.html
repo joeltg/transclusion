@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<script>
+    customElements.define('x-node', class extends HTMLElement {
+        constructor() {
+            super();
+        }
+        connectedCallback() {
+            const name = this.getAttribute('name');
+            const children = [...this.children];
+            const ownerDocument = document.currentScript.ownerDocument;
+            customElements.define(name, class extends HTMLElement {
+                constructor() {
+                    super();
+                }
+                connectedCallback() {
+                    this.style.display = 'block';
+                    this.style.margin = 0;
+                    this.style.border = '1px solid black';
+                    this.style.padding = '32px';
+                    const root = this.attachShadow({mode: 'open'});
+                    children.forEach(child => root.appendChild(document.importNode(child, true)));
+                }
+            });
+        }
+    });
+</script>
+</html>
