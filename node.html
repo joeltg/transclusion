@@ -11,7 +11,7 @@
         connectedCallback() {
             const name = this.getAttribute('name');
             const children = [...this.children];
-            const ownerDocument = document.currentScript.ownerDocument;
+            const {ownerDocument} = document.currentScript;
             customElements.define(name, class extends HTMLElement {
                 constructor() {
                     super();
