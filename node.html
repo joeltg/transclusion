@@ -18,11 +18,10 @@
                 }
                 connectedCallback() {
                     this.style.display = 'block';
-                    this.style.margin = 0;
                     this.style.border = '1px solid black';
                     this.style.padding = '32px';
                     const root = this.attachShadow({mode: 'open'});
-                    children.forEach(child => root.appendChild(document.importNode(child, true)));
+                    children.forEach(child => root.appendChild(ownerDocument.importNode(child, true)));
                 }
             });
         }
