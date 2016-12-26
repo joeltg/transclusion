@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
 </head>
 <script>
+    const {ownerDocument} = document.currentScript;
     customElements.define('root-node', class extends HTMLElement {
         constructor() {
             super();
@@ -11,7 +12,6 @@
         connectedCallback() {
             const name = this.getAttribute('name');
             const children = [...this.children];
-            const {ownerDocument} = document.currentScript;
             customElements.define(name, class extends HTMLElement {
                 constructor() {
                     super();
