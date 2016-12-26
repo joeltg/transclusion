@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Level 1</title>
-    <link rel="import" href="node.html">
-    <link rel="import" href="level2.html">
+    <link rel="import" href="root-node.html">
+    <link rel="import" href="level-two.html">
 </head>
 <body>
     <p>This is a header that should be be transcluded</p>
     <root-node name="level-one">
         <p>Hello this is Level One</p>
         <p>Notice that there are multiple elements</p>
-        <p>Here's <a href="level2.html">Level Two</a> transcluded from Level One:</p>
+        <p>Here's <a href="level-two.html">Level Two</a> transcluded from Level One:</p>
         <level-two></level-two>
     </root-node>
     <p>This is a footer that also should not be transcluded</p>
-    <p>Click <a href="/">here</a> to go up to the root level</p>
+    <p>Click <a href="index.html">here</a> to go up to the root level</p>
 </body>
 </html>
