@@ -8,12 +8,12 @@
 </head>
 <body>
     <p>This is a header that should be be transcluded</p>
-    <x-node name="level-one">
+    <root-node name="level-one">
         <p>Hello this is Level One</p>
         <p>Notice that there are multiple elements</p>
-        <p>Here's Level Two transcluded from Level One:</p>
+        <p>Here's <a href="level2.html">Level Two</a> transcluded from Level One:</p>
         <level-two></level-two>
-    </x-node>
+    </root-node>
     <p>This is a footer that also should not be transcluded</p>
     <p>Click <a href="/">here</a> to go up to the root level</p>
 </body>
