@@ -1,6 +1,6 @@
 # transclusion.html
 
-iframes are cool, but heavy and slow. With WebComponents we can do similar things, but faster, and have more fun while doing them too.
+iframes are cool, but heavy. With WebComponents we can do similar things, but faster, and have more fun while doing them too.
 
 ```
 <!--index.html-->
@@ -46,5 +46,7 @@ iframes are cool, but heavy and slow. With WebComponents we can do similar thing
 </html>
 ```
 
-Export and import multiple elements with a `name=` attribute.
-Don't try recursion; it does exactly what you expect.
+![cool, right?](https://github.com/joeltg/transclusion/raw/master/demo.png)
+
+Export and import multiple elements with a `name=` attribute. Add CSS to taste.
+Don't recurse; it does exactly what you expect.
