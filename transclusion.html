@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/tufte.css">
+</head>
+<style>
+    html-import {
+        display: block;
+        padding: 16px;
+        margin-right: 16px;
+        border: 1px solid black;
+    }
+</style>
+<script>
+    {
+        const defaultName = 'default';
+        const exportSelector = name => `html-export[name=${name}]`;
+        const linkSelector = href => `link[rel=import][href=${clean(href)}]`;
+
+        function clean(href) {
+            return href.split('.').join('\\.');
+        }
+
+        function importLink(href) {
+            const link = document.createElement('link');
+            link.rel = 'import';
+            link.href = href;
+            return document.head.appendChild(link);
+        }
+
+        class HTMLImport extends HTMLElement {
+            constructor() {
+                super();
+            }
+            attachImport(root) {
+                const node = root.querySelector(exportSelector(this.name));
+                this.appendChild(node.cloneNode(true));
+            }
+            connectedCallback() {
+                this.name = this.getAttribute('name');
+                this.href = this.getAttribute('href');
+                const link = document.head.querySelector(linkSelector(this.href)) || importLink(this.href);
+                if (link.hasOwnProperty('import')) this.attachImport(link.import);
+                else link.addEventListener('load', e => this.attachImport(link.import));
+            }
+            get name() {
+                return this.getAttribute('name');
+            }
+            set name(name) {
+                this.setAttribute('name', name || defaultName);
+            }
+            get href() {
+                return this.getAttribute('href');
+            }
+            set href(href) {
+                this.setAttribute('href', href);
+            }
+        }
+
+        class HTMLExport extends HTMLElement {
+            constructor() {
+                super();
+            }
+            connectedCallback() {
+                this.name = this.getAttribute('name');
+            }
+            get name() {
+                return this.getAttribute('name');
+            }
+            set name(name) {
+                this.setAttribute('name', name || defaultName);
+            }
+        }
+
+        customElements.define('html-import', HTMLImport);
+        customElements.define('html-export', HTMLExport);
+    }
+</script>
+</html>

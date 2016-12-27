@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Thing One</title>
-    <link rel="import" href="root-node.html">
-    <link rel="import" href="thing-two.html">
+    <link rel="import" href="transclusion.html">
 </head>
 <body>
-    <p>This is a header that won't be transcluded</p>
-    <root-node name="thing-one">
+    <p>This is a header that won't be transcluded, but the rest is inside the <code>html-export</code> element</p>
+    <html-export>
         <p>Hello this is Thing One</p>
-        <p>Notice that there are multiple elements</p>
         <p>Here's <a href="thing-two.html">Thing Two</a> transcluded from Thing One:</p>
-        <thing-two></thing-two>
-    </root-node>
+        <html-import shadow href="thing-two.html"></html-import>
+    </html-export>
     <p>This is a footer that also won't be transcluded</p>
+    <p>If we were using iframes we wouldn't be able to selective include/exclude parts like this, so that's neat</p>
     <p>Click <a href="index.html">here</a> to go up to the root thing</p>
 </body>
 </html>
