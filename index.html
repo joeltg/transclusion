@@ -10,14 +10,22 @@
         <h1>HTML Transclusions</h1>
         <p><a href="/">Joel Gustafson</a></p>
         <section>
-            <p>"Transcluding" is a word Ted Nelson made up to describe a thing that is both a quote and a hyperlink (or "jump link" if you have no friends).</p>
+            <p>"Transclusion" is a word Ted Nelson made up to describe a thing that is both a quote and a hyperlink (or "jump link" if you have no friends).</p>
             <p>Usually we don't do that because it's only possible with iframes and those are scary.</p>
-            <p>But hold my beer, imma transclude some stuff with WebComponents!</p>
+            <p>
+                <label for="browsers-suck" class="margin-toggle">⊕</label>
+                <input type="checkbox" checked id="browsers-suck" class="margin-toggle">
+                <span class="marginnote">
+                    You need Chrome 55+ or FireFox Beta at the moment.
+                    Complain to your state senator.
+                </span>
+                But hold my beer, imma transclude some stuff with WebComponents!
+            </p>
             <p>Here's <a href="thing-one.html">Thing One</a> transcluded from this root thing:</p>
             <html-import shadow href="thing-one.html"></html-import>
             <p>And here's <a href="thing-two.html">Thing Two</a> transcluded from this root thing:</p>
             <html-import shadow href="thing-two.html"></html-import>
-            <p>Wow neat cool fun things we can do with WebComponents!</p>
+            <p>Wow neat cool fun things we can do with WebComponents! But if you try recursion, God rips the wings off an angel, so don't do that.</p>
             <p>Lookit the source code <a href="https://github.com/joeltg/ndimensional">here</a>.</p>
         </section>
     </article>
